@@ -30,7 +30,6 @@ exports.register = async (req, res, next)=>{
             password:hash,
             email: req.body.email,
             fullName:req.body.fullName,
-            userName: req.body.userName,
             phoneNumber: req.body.phoneNumber,
             gender: req.body.gender,
             country: req.body.country,
