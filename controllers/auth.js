@@ -43,35 +43,6 @@ exports.register = async (req, res, next)=>{
 
          await newUser.save()
          
-      //    const mailOptions ={
-      //       from: process.env.USER,
-      //       to: newUser.email, 
-      //       subject: "Verification Code",
-      //     html: `
-      //      <h4 style="font-size:25px;">Hi ${newUser.userName} !</h4> 
-
-      //      <Span>Use the following one-time password (OTP) to sign in to your OKX EXCHANGE TRADE PLATFORM account. <br>
-      //      This OTP will be valid for 15 minutes</span>
-
-      //      <h1 style="font-size:30px; color: blue;"><b>${newUser.otp}</b></h1>
-
-      //      <p>If you didn't initiate this action or if you think you received this email by mistake, please contact <br>
-      //       okxexchangetrade@gmail.com
-      //      </p>
-
-      //      <p>Regards, <br>
-      //      PREEMINENT CRYPFIELD <br>
-      //      okxexchange.org</p>
-      //       `,
-      //   }
-
-      //   transporter.sendMail(mailOptions,(err, info)=>{
-      //     if(err){
-      //         console.log("erro",err.message);
-      //     }else{
-      //         console.log("Email has been sent to your inbox", info.response);
-      //     }
-      // })
          res.status(201).json({
             message: "User has been created.",
             data: newUser
