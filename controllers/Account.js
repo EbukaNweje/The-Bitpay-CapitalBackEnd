@@ -76,7 +76,7 @@ exports.ResAccount = async (req, res, next) => {
               <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td style="text-align: center;">
-                    <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;">Whitebit</a></h1> -->
+                    <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;"> Bitpay Capital </a></h1> -->
                   </td>
                 </tr>
               </table>
@@ -108,54 +108,6 @@ exports.ResAccount = async (req, res, next) => {
           </tr><!-- end tr -->
           <!-- 1 Column Text + Button : END -->
           </table>
-          <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;  background-color: #000;">
-          <tr>
-           <!--
-           <td valign="middle" style="padding:2.5em; background-color: #fafafa;">
-           <table>
-             <tr>
-               <td valign="top" width="33.333%" style="padding-top: 20px;">
-                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                   <tr>
-                     <td style="text-align: left; padding-right: 10px;">
-                       <h3 style="color: #000; font-size: 20px; margin-top: 0; font-weight: 400;">About</h3>
-                       <p>We want to make seemless travel for our user our number1 priority</p>
-                     </td>
-                   </tr>
-                 </table>
-               </td>
-               -->
-                 <!--
-                 <td valign="top" width="33.333%" style="padding-top: 20px;">
-                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                   <tr>
-                     <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                       <h3 style="color: #000; font-size: 20px; margin-top: 0; font-weight: 400;">Contact Info</h3>
-                       <ul>
-                         <li><span style="color: rgba(0,0,0,.5);">${process.env.USER}</span></li>
-                       </ul>
-                     </td>
-                   </tr>
-                 </table>
-               </td>
-                 -->
-                  <td valign="top" width="33.333%" style="padding-top: 20px;">
-                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                      <tr>
-                        <td style="text-align: left; padding-left: 10px;">
-                          <h3 style="color: #EABD4E; font-size: 20px; margin-top: 0; font-weight: 400;">Useful Links</h3>
-                          <ul>
-                            <li style="color: #fff;"><a href="https://whitebitcrypfield.org" style="color: #30e3ca;">Home</a></li>
-                            <li style="color: #fff;"><a href="https://whitebitcrypfield.org/about" style="color: #30e3ca;">About</a></li>
-                            <li style="color: #fff;"><a href="https://whitebitcrypfield.org/faq" style="color: #30e3ca;">FAQ</a></li>
-                            <li style="color: #fff;"><a href="https://whitebitcrypfield.org/sendrequest" style="color: #30e3ca;">Ask a question</a></li>
-                          </ul>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
             </td>
           </tr><!-- end: tr -->
           <tr style="text-align: center;">
@@ -170,6 +122,15 @@ exports.ResAccount = async (req, res, next) => {
           </body>
           </html> 
             `,
+
+            attachments: [
+              {
+                filename: 'Icon.png',
+                path:  __dirname+'/logo.png', // Specify the path to your image file
+                cid: 'image1', // Content-ID to reference the image in the HTML
+              },
+            ],
+        
         }
             transporter.sendMail(mailOptions2,(err, info)=>{
             if(err){
@@ -239,7 +200,7 @@ exports.sendWithdrawCode = async (req, res,next) => {
         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
             <td style="text-align: center;">
-              <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;">Whitebit</a></h1> -->
+              <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;">Bitpay Capital </a></h1> -->
             </td>
           </tr>
         </table>
@@ -257,7 +218,7 @@ exports.sendWithdrawCode = async (req, res,next) => {
             <td>
               <div style="padding: 0 1.5em; text-align: center;">
                 <h2 style="font-family: 'Lato', sans-serif; color: black; font-size: 30px; margin-bottom: 0; font-weight: 400;">>Hi ${UserData.userName}!</h2>
-                <h3 style="font-family: 'Lato', sans-serif; font-size: 24px; font-weight: 300;">Use the following one-time password (OTP) to make a Withdrawal on Whitebit TRADE PLATFORM account. <br>
+                <h3 style="font-family: 'Lato', sans-serif; font-size: 24px; font-weight: 300;">Use the following one-time password (OTP) to make a Withdrawal on Bitpay Capital account. <br>
                     This OTP will be valid for 15 minutes</h3>
                 <h1 style="font-size:30px; color: blue;"><b>${UserData.withdrawCode}</b></h1>
                 <p>If you did not initiate this, change your password immediately and send our Customer Center an email to <br/> <span style="color: blue">${process.env.USER}</span></p>
@@ -269,54 +230,6 @@ exports.sendWithdrawCode = async (req, res,next) => {
     </tr><!-- end tr -->
     <!-- 1 Column Text + Button : END -->
     </table>
-    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;  background-color: #000;">
-    <tr>
-     <!--
-     <td valign="middle" style="padding:2.5em; background-color: #fafafa;">
-     <table>
-       <tr>
-         <td valign="top" width="33.333%" style="padding-top: 20px;">
-           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-             <tr>
-               <td style="text-align: left; padding-right: 10px;">
-                 <h3 style="color: #000; font-size: 20px; margin-top: 0; font-weight: 400;">About</h3>
-                 <p>We want to make seemless travel for our user our number1 priority</p>
-               </td>
-             </tr>
-           </table>
-         </td>
-         -->
-           <!--
-           <td valign="top" width="33.333%" style="padding-top: 20px;">
-           <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-             <tr>
-               <td style="text-align: left; padding-left: 5px; padding-right: 5px;">
-                 <h3 style="color: #000; font-size: 20px; margin-top: 0; font-weight: 400;">Contact Info</h3>
-                 <ul>
-                   <li><span style="color: rgba(0,0,0,.5);">${process.env.USER}</span></li>
-                 </ul>
-               </td>
-             </tr>
-           </table>
-         </td>
-           -->
-            <td valign="top" width="33.333%" style="padding-top: 20px;">
-              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                <tr>
-                  <td style="text-align: left; padding-left: 10px;">
-                    <h3 style="color: #EABD4E; font-size: 20px; margin-top: 0; font-weight: 400;">Useful Links</h3>
-                    <ul>
-                      <li style="color: #fff;"><a href="https://whitebitcrypfield.org" style="color: #30e3ca;">Home</a></li>
-                      <li style="color: #fff;"><a href="https://whitebitcrypfield.org/about" style="color: #30e3ca;">About</a></li>
-                      <li style="color: #fff;"><a href="https://whitebitcrypfield.org/faq" style="color: #30e3ca;">FAQ</a></li>
-                      <li style="color: #fff;"><a href="https://whitebitcrypfield.org/sendrequest" style="color: #30e3ca;">Ask a question</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
       </td>
     </tr><!-- end: tr -->
     <tr style="text-align: center;">
@@ -331,6 +244,15 @@ exports.sendWithdrawCode = async (req, res,next) => {
     </body>
     </html> 
         `,
+
+        attachments: [
+          {
+            filename: 'Icon.png',
+            path:  __dirname+'/logo.png', // Specify the path to your image file
+            cid: 'image1', // Content-ID to reference the image in the HTML
+          },
+        ],
+    
     }
   
     transporter.sendMail(mailOptions,(err, info)=>{
