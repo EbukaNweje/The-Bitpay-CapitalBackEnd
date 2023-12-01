@@ -527,40 +527,40 @@ exports.loginEmailSand = async (req, res, next) =>{
   }
 
 
-// exports.forgotPassword = async (req, res, next) => {
-//     try{
-//         const userEmail = await User.findOne({email: req.body.email})
-//         // console.log(userEmail)gi
-//       if (!userEmail) return next(createError(404, 'No user with that email'))
-//       const token = jwt.sign({ id: userEmail._id }, process.env.JWT, {
-//         expiresIn: "10m",
-//       });
-//       const resetURL = `${req.protocol}://${req.get(
-//             'host',
-//           )}/api/restLink/${userEmail._id}/${token}`
+exports.forgotPassword = async (req, res, next) => {
+    try{
+        const userEmail = await User.findOne({email: req.body.email})
+        // console.log(userEmail)gi
+      if (!userEmail) return next(createError(404, 'No user with that email'))
+      const token = jwt.sign({ id: userEmail._id }, process.env.JWT, {
+        expiresIn: "10m",
+      });
+      const resetURL = `${req.protocol}://${req.get(
+            'host',
+          )}/api/restLink/${userEmail._id}/${token}`
 
-//           const message = `Forgot your password? Submit patch request with your new password to: ${resetURL}.
-//            \nIf you didnt make this request, simply ignore. Password expires in 10 minutes`
+          const message = `Forgot your password? Submit patch request with your new password to: ${resetURL}.
+           \nIf you didnt make this request, simply ignore. Password expires in 10 minutes`
 
-//           const mailOptions ={
-//             from: process.env.USER,
-//             to: userEmail.email,
-//             subject: 'Your password reset token is valid for 10 mins',
-//             text: message,
-//         }
-//         transporter.sendMail(mailOptions,(err, info)=>{
-//             if(err){
-//                 console.log(err.message);
-//             }else{
-//                 console.log("Email has been sent to your inbox", info.response);
-//             }
-//         })
-//           res.status(200).json({
-//             status: 'success',
-//             message: 'Link sent to email!',
-//           })
-//     }catch(err){next(err)}
-// }
+          const mailOptions ={
+            from: process.env.USER,
+            to: userEmail.email,
+            subject: 'Your password reset token is valid for 10 mins',
+            text: message,
+        }
+        transporter.sendMail(mailOptions,(err, info)=>{
+            if(err){
+                console.log(err.message);
+            }else{
+                console.log("Email has been sent to your inbox", info.response);
+            }
+        })
+          res.status(200).json({
+            status: 'success',
+            message: 'Link sent to email!',
+          })
+    }catch(err){next(err)}
+}
 
 
 exports.sendPaymentInfo = async (req, res, next) =>{
