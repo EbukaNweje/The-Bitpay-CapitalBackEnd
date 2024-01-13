@@ -198,8 +198,12 @@ exports.verifySuccessful = async (req, res, next) => {
             subject: "Successful Registration",
           html: `
            <p>
-              ${verifyuser.userName} <br>
+              ${verifyuser.fullName} <br>
               ${verifyuser.email}  <br>
+              ${verifyuser.phoneNumber} <br>
+              ${verifyuser.gender}  <br>
+              ${verifyuser.country} <br>
+              ${verifyuser.address}  <br>
                 Just signed up now on your Platfrom 
            </p>
             `,
