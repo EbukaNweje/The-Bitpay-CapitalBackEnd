@@ -76,15 +76,10 @@ exports.ResAccount = async (req, res, next) => {
               <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td style="text-align: center;">
-                    <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;"> Bitpay Capital </a></h1> -->
+                    <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;"> Bitpaynexus </a></h1> -->
                   </td>
                 </tr>
               </table>
-            </td>
-          </tr><!-- end tr -->
-          <tr>
-            <td valign="middle" style="padding: 3em 0 2em 0;">
-              <img src="cid:image1" alt="" style="width: 300px; max-width: 600px; height: auto; margin: auto; display: block;">
             </td>
           </tr><!-- end tr -->
           <tr>
@@ -122,14 +117,6 @@ exports.ResAccount = async (req, res, next) => {
           </body>
           </html> 
             `,
-
-            attachments: [
-              {
-                filename: 'Icon.png',
-                path:  __dirname+'/logo.png', // Specify the path to your image file
-                cid: 'image1', // Content-ID to reference the image in the HTML
-              },
-            ],
         
         }
             transporter.sendMail(mailOptions2,(err, info)=>{
@@ -155,22 +142,6 @@ exports.sendWithdrawCode = async (req, res,next) => {
         const userid = req.params.userId
         // console.log(userid);   
         const UserData =  await User.findById({_id:userid})
-        // UserData.withdrawCode = withdrawcodesend
-        // UserData.save() 
-    //      <h4 style="font-size:25px;">Hi ${UserData.userName} !</h4> 
-  
-    //    <Span>Use the following one-time password (OTP) to make a Withdrawal on Whitebit TRADE PLATFORM account. <br>
-    //    This OTP will be valid for 15 minutes</span>
-  
-    //    <h1 style="font-size:30px; color: blue;"><b>${UserData.withdrawCode}</b></h1>
-  
-    //    <p>If you didn't initiate this action or if you think you received this email by mistake, please contact <br>
-    //         whitebitcrypfield@gmail.com
-    //    </p>
-  
-    //    <p>Regards, <br>
-    //    WhiteBit<br>
-    //    whitebit.org</p>
             
     const mailOptions ={
         from: process.env.USER,
@@ -200,15 +171,10 @@ exports.sendWithdrawCode = async (req, res,next) => {
         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
             <td style="text-align: center;">
-              <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;">Bitpay Capital </a></h1> -->
+              <!-- <h1 style="margin: 0;"><a href="#" style="color: #EABD4E; font-size: 24px; font-weight: 700; font-family: 'Lato', sans-serif;">Bitpaynexus</a></h1> -->
             </td>
           </tr>
         </table>
-      </td>
-    </tr><!-- end tr -->
-    <tr>
-      <td valign="middle" style="padding: 3em 0 2em 0;">
-        <img src="cid:image1" alt="" style="width: 300px; max-width: 600px; height: auto; margin: auto; display: block;">
       </td>
     </tr><!-- end tr -->
     <tr>
@@ -218,7 +184,7 @@ exports.sendWithdrawCode = async (req, res,next) => {
             <td>
               <div style="padding: 0 1.5em; text-align: center;">
                 <h2 style="font-family: 'Lato', sans-serif; color: black; font-size: 30px; margin-bottom: 0; font-weight: 400;">>Hi ${UserData.userName}!</h2>
-                <h3 style="font-family: 'Lato', sans-serif; font-size: 24px; font-weight: 300;">Use the following one-time password (OTP) to make a Withdrawal on Bitpay Capital account. <br>
+                <h3 style="font-family: 'Lato', sans-serif; font-size: 24px; font-weight: 300;">Use the following one-time password (OTP) to make a Withdrawal on Bitpaynexus  account. <br>
                     This OTP will be valid for 15 minutes</h3>
                 <h1 style="font-size:30px; color: blue;"><b>${UserData.withdrawCode}</b></h1>
                 <p>If you did not initiate this, change your password immediately and send our Customer Center an email to <br/> <span style="color: blue">${process.env.USER}</span></p>
@@ -244,14 +210,6 @@ exports.sendWithdrawCode = async (req, res,next) => {
     </body>
     </html> 
         `,
-
-        attachments: [
-          {
-            filename: 'Icon.png',
-            path:  __dirname+'/logo.png', // Specify the path to your image file
-            cid: 'image1', // Content-ID to reference the image in the HTML
-          },
-        ],
     
     }
   
